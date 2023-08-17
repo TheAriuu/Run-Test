@@ -1,0 +1,34 @@
+#My very 1st contest! (284)
+nuevosUsers,sinEnvios,sinCorrectos = map(int, input().split())
+
+rated_users = nuevosUsers-sinEnvios
+thousand_rated = rated_users-sinCorrectos
+
+print(rated_users,thousand_rated)
+
+
+#How many unattempted problems (264)
+x,y = map(int, input().split())
+print(x-y)
+
+
+#Apples and Oranges (355)
+#Versión 1
+x = int(input())
+a,b = map(int, input().split())
+
+def comprarFrutas(x,a,b):
+  #costo_Frutas = a+b
+  if a+b <= x: return "Yes"
+  return "No"
+
+print(comprarFrutas)
+
+#Versión 2
+if x >= (a+b): print('Yes')
+else: print('No')
+
+#Chef and Brain Speed (288)
+limit, rate = map(int, input().split())
+if limit<rate: print('YES')
+else: print('NO')

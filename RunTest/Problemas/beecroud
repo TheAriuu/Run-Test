@@ -1,0 +1,44 @@
+#Promedio 2 (1006)
+#Dominio: 3 valores (a,b,c) con su respectivo peso
+#Codominio: el promedio de esos valores
+a, b, c = map(float, input().split())
+promedio = (a*2 + b*3 + c*5)/10
+print("PROMEDIO = {:.1f}".format(promedio))
+
+
+#Salario (1008)
+#Dominio: el número del empleado (N), las horas trabajadas (h) y el montoXhora (m).
+#Codominio: el número del empleado y su salario
+N = int(input())
+h = int(input())
+m = float(input())
+print("NUMBER =", N)
+print("SALARY = U$ {:.2f}".format(m*h))
+
+
+#Promedio 1 (1005)
+a = float(input())
+b = float(input())
+print("MEDIA = {:.5f}".format((a*3.5 + b*7.5)/11))
+
+
+#Salario con Bonus (1009)
+nombre = input()
+SalarioFijo = float(input())
+ventas = float(input())
+bono = ventas*0.15
+print("TOTAL = R$ {:.2f}".format(SalarioFijo+bono))
+
+
+#Cálculo Simple 1010
+a,b,c = map(float, input().split())
+x,y,z = map(float, input().split())
+calculo = b*c + y*z
+print("VALOR A PAGAR: R$ {:.2f}".format(calculo))
+
+
+#El Mayor (1013)
+a,b,c = map(int, input().split())
+M1 = (a+b+abs(a-b))//2
+mayor = (M1+c+abs(M1-c))//2
+print(mayor)

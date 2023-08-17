@@ -1,0 +1,124 @@
+n = int(input())
+
+'''#Intercambiar dos variables
+a = int(input("Ingrese el valor de a: "))
+b = int(input("Ingrese el valor de b: "))
+c=b
+b=a
+a=c
+print("ahora el valor de a es {} y el valor de b es {}".format(a,b))
+
+
+#Área de un triángulo
+b = float(input("Ingrese la base: "))
+h = float(input("Ingrese la altura: "))
+areaTriangulo = b*h/2
+print("El área del triángulo es {:.2f}".format(areaTriangulo))
+
+
+#Perímetro de un triángulo rectángulo
+a,b,c = map(float,input("Ingrese las medidas de los lados: ").split())
+print("El perímetro del triángulo es {}".format(a+b+c))
+
+
+#Mayor de dos números
+#Versión 1 (Solo funciona para enteros)
+a,b = map(int,input("Ingrese los números que desea comparar: ").split())
+def vlabs(x):
+    if x>=0: return x
+    return -x
+Mayor2 = (a+b+vlabs(a-b))//2
+print("El número mayor es: {}".format(Mayor2))
+
+#Versión 2 (Funciona también para flotantes)
+a = float(input())
+b = float(input())
+if b>a: print("El mayor es {}".format(b))
+elif a>b: print("El mayor es {}".format(a))
+else: print("Los números son iguales")
+
+
+#Mayor de tres números
+#Versión 1 (Solo para enteros)
+a,b,c = map(int, input().split())
+M1 = (a+b+vlabs(a-b))//2
+mayor = (M1+c+vlabs(M1-c))//2
+print(mayor)
+
+#Versión 2
+a = float(input())
+b = float(input())
+c = float(input())
+mayor = a
+if b>mayor:
+    mayor = b
+if c>mayor:
+    mayor = c
+print(mayor)
+
+
+#Índice de Masa Corporal (IMC)
+print("Digite 1 si va a utilizar metros y kilos")
+print("Digite 2 si va a utilizar libras y pulgadas")
+n = int(input())
+p = float(input("Ingrese su peso: "))
+h = float(input("Ingrese su altura en metros: "))
+
+#Utilizar en caso de que las unidades estén en libras o pulgadas
+if n==1:
+    IMC = p/(h*h)
+if n==2:
+    l2k= p/2.205
+    p2m = h*2.54
+    IMC = l2k/(p2m*p2m)
+
+def clasificacion(IMC):
+    if IMC<18.5: return ("Su estado es Desnutrición")
+    elif IMC<25: return ("Su estado es Normal")
+    elif IMC<=30: return ("Su estado es Sobrepeso")
+    elif IMC<=40: return ("Su estado es Obesidad Leve")
+    else: return ("Su estado es Obesidad Grave")
+
+print("Su IMC es: {:.2f}".format(IMC))
+print(clasificacion(IMC))
+'''
+#Obtener todos los divisores+
+
+
+#Invertir
+def invertir(n):
+    if n<10: return n
+    return invAux(0,n)
+def invAux(i,n):
+    if n==0: return i
+    return invAux(i*10+n%10,n//10)
+
+
+#Invertir (forma de la profe)
+def invI(n):
+    res = 0
+    while n>0:
+        res = res*10 + n%10
+        n = n//10
+    return res
+
+#El número es Palíndromo?
+def Paladin(n):
+    if n == invertir(n): return ("Es Palíndromo")
+    return ("No es palíndromo")
+
+print(Paladin(n))
+
+#SumarNumeros(Función)
+def sumaNnum(n,suma=0,i=1):
+    if i>n: return suma
+    return sumaNnum(n,i+suma,i+1)
+
+#SumarNumeros(iterativo)
+def sumaI(n):
+    suma = 0
+    i = 1
+    while i<=n:
+        suma = i + suma
+        i += 1
+    return suma

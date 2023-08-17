@@ -1,0 +1,87 @@
+n = int(input())
+'''a,b = map(int, input().split())'''
+
+#Factorial de distintas formas
+def factorial(n):
+    if (n==0): return 1
+    return n * factorial(n-1)
+
+def factPila(n):
+    if n: return n * factPila(n-1)
+    return 1
+
+def factCola(n, r=1):
+    if n: return factCola(n-1, r*n)
+    return r
+
+def factI(n):
+    p = 1
+    for i in range (1,n+1):
+        p *= i
+    return p
+
+
+#Máximo Común Divisor (MCD)
+def MCD(a,b):
+    if b: return MCD(b,a%b) #Fórmula
+    return a
+
+
+#Mínimo común múltiplo (mcm)
+def mcm(a,b):
+    return (a*b) // MCD(a,b) #Fórmula
+
+
+#Suma de cubos
+def SCcola(n,r=0):
+    if n<1: return r
+    return SCcola(n-1, r + n*n*n)
+
+def SCpila(n):
+    if n<1: return 0
+    return n*n*n + SCpila(n-1)
+
+def SCI(n):
+    s=0
+    for i in range(1,n+1):
+        s+=i*i*i
+    return s
+
+
+#n-simo Primo
+def esPrimo(n):
+    if n==1: return False
+    if n==2: return True
+    if not n%2: return False
+    return esPrimoAux(n,3)
+def esPrimoAux(n,i):
+    if i*i>n: return True
+    if not n%i: return False
+    return esPrimoAux(n,i+2)
+
+
+def nsimoPrimo(n):
+    if n==1: return 2
+    cont = 1
+    sgtPrimo = 3
+    while cont<n:
+        if esPrimo(sgtPrimo):
+            cont += 1
+        sgtPrimo += 2
+    return sgtPrimo-2
+
+
+#Función que me determina la cantidad de dígitos de un número
+def cantDigitos(n,r=1):
+    if n<10: return r
+    return cantDigitos(n//10,r+1)
+
+
+def invertir(n):
+    if n<10: return n
+    return invAux(0,n)
+def invAux(inv,n):
+    if n==0: return inv
+    return invAux(inv*10+n%10,n//10)
+
+print(invertir(n))
